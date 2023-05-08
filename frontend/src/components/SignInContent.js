@@ -23,7 +23,7 @@ const SignInContent = () => {
     email: 'tony@stark.com',
     password: 'password123'
   })
-  
+
   // Gestion de la modification des champs du formulaire
   const onChange = (e) => {
     setCredentials({

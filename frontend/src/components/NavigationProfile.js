@@ -2,9 +2,15 @@ import React from 'react';
 import '../pages/style/Main.css';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/img/argentBankLogo.png'
-// import { accountService } from '../_service/AccountService'
+import { accountService } from '../_service/AccountService'
+
+import { useSelector } from 'react-redux'
+
 
 const NavigationProfile = () => {
+
+  const name = useSelector(state => state.Name)
+
   return (
     <nav className="main-nav">
       <Link to="/" className="main-nav-logo">          
@@ -18,12 +24,12 @@ const NavigationProfile = () => {
       <div>
         <Link to="/profile" className="main-nav-item">
           <i className="fa fa-user-circle"></i>
-          Tony
+          {name.firstname}
         </Link>
-        {/* <Link to="/" className="main-nav-item" onClick={accountService.logout()}>          
+        <Link to="/" className="main-nav-item" onClick={() => accountService.logout()}>
           <i className="fa fa-sign-out"></i>
           Sign Out
-        </Link>           */}
+        </Link>
       </div>
     </nav>
   )

@@ -1,6 +1,9 @@
 import Axios from './CallerService'
 import jwt_decode from 'jwt-decode'
 
+
+import { userService } from '../_service/UserService'
+
 /**
  * Connexion vers l'API
  * @param {object} credentials 
@@ -16,6 +19,13 @@ let login = (credentials) => {
  */
 let saveToken = (token) => {
   localStorage.setItem('token', token)
+
+  userService.getUser()
+  .then(res => {
+    localStorage.setItem('firstname',res.data.body.firstName)
+    localStorage.setItem('lastname', res.data.body.lastName)
+  })
+  .catch(err => console.log(err))
 }
 
 /**
@@ -23,6 +33,9 @@ let saveToken = (token) => {
  */
 let logout = () => {
   localStorage.removeItem('token')
+
+  localStorage.removeItem('firstname')
+  localStorage.removeItem('lastname')
 }
 
 /**

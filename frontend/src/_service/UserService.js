@@ -3,21 +3,12 @@ import { accountService } from './AccountService'
 
 /**
  * Connexion vers l'API
- * @param {object} credentials 
+ * @param {object} accountService.isLogged() 
  * @returns {Promise}
  */
-let getUser = (credentials) => {
-  return Axios.post('/profile', accountService.isLogged())
+let getUser = () => {
+  return Axios.post('/profile', accountService.getToken(),)
 }
-
-/**
- * Récupération d'un utilisateur
- * @returns {Promise}
- */
-// let getUser = () => {
-//   console.log(Axios.get('/profile'))
-//   return Axios.get('/profile')
-// }
 
 /**
  * Mise à jour d'un utilisateur
@@ -25,11 +16,11 @@ let getUser = (credentials) => {
  * @returns {Promise}
  */
 let updateUser = (user) => {
-  return Axios.patch('/profile', user)
+  // return Axios.patch('/profile', user)
+  return Axios.put('/profile', user)
 }
 
 // Déclaration des services pour import
 export const userService = {
-   getUser, 
-  updateUser
+  getUser, updateUser
 }

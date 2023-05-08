@@ -1,5 +1,5 @@
-import React from 'react';
-import '../pages/style/Main.css';
+import React from 'react'
+import '../pages/style/Main.css'
 import PropTypes from 'prop-types'
 
 const Card = ({title, description, icon}) => {
