@@ -25,18 +25,18 @@ const SignInContent = () => {
   const onSubmit = (e) => {
     e.preventDefault()
     accountService.login(credentials)
-      .then(res => {
-        // Sauvegarde du token et envoi vers admin
-        accountService.saveToken(res.data.body.token)
+    .then(res => {
+      // Sauvegarde du token et envoi vers admin
+      accountService.saveToken(res.data.body.token)
 
-        // Se déclenche lorsque le localStorage change
-        window.addEventListener('storage', () => {
-          navigate('/profile', {replace: true})
-          console.log(res)
-        })
-
+      // Se déclenche lorsque le localStorage change
+      window.addEventListener('storage', () => {
+        navigate('/profile', {replace: true})
+        console.log(res)
       })
-      .catch(error => console.log(error))
+
+    })
+    .catch(error => console.log(error))
   }
 
   return (
