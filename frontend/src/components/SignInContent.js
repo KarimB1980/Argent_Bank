@@ -1,18 +1,7 @@
-// import React from 'react';
 import '../pages/style/Main.css';
-
-
-
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
 import { accountService } from '../_service/AccountService';
-
-// import './auth.css'
-
-// const Login = () => {
-
-
 
 const SignInContent = () => {
   let navigate = useNavigate()
@@ -38,11 +27,14 @@ const SignInContent = () => {
     accountService.login(credentials)
       .then(res => {
         // Sauvegarde du token et envoi vers admin
-        // accountService.saveToken(res.data.access_token)
         accountService.saveToken(res.data.body.token)
 
-        // navigate('/admin', {replace: true})
-        navigate('/profile', {replace: true})
+        // Se déclenche lorsque le localStorage change
+        window.addEventListener('storage', () => {
+          navigate('/profile', {replace: true})
+          console.log(res)
+        })
+
       })
       .catch(error => console.log(error))
   }

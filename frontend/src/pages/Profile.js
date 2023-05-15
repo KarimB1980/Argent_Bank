@@ -4,7 +4,6 @@ import NavigationProfile from '../components/NavigationProfile'
 import Header from '../components/Header';
 
 import Account from '../components/Account';
-
 import Footer from '../components/Footer'
 
 // Creation of the profil page

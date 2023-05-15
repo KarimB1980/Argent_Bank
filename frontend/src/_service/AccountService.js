@@ -1,7 +1,5 @@
 import Axios from './CallerService'
-import jwt_decode from 'jwt-decode'
-
-
+// import jwt_decode from 'jwt-decode'
 import { userService } from '../_service/UserService'
 
 /**
@@ -22,8 +20,10 @@ let saveToken = (token) => {
 
   userService.getUser()
   .then(res => {
-    localStorage.setItem('firstname',res.data.body.firstName)
-    localStorage.setItem('lastname', res.data.body.lastName)
+    localStorage.setItem('firstName',res.data.body.firstName)
+    localStorage.setItem('lastName', res.data.body.lastName)
+    // Evènement au changement du localStorage
+    window.dispatchEvent(new Event("storage"));
   })
   .catch(err => console.log(err))
 }
@@ -34,8 +34,8 @@ let saveToken = (token) => {
 let logout = () => {
   localStorage.removeItem('token')
 
-  localStorage.removeItem('firstname')
-  localStorage.removeItem('lastname')
+  localStorage.removeItem('firstName')
+  localStorage.removeItem('lastName')
 }
 
 /**
@@ -55,15 +55,15 @@ let getToken = () => {
   return localStorage.getItem('token')
 }
 
-/**
- * Récupération du payload du token
- * @returns {object}
- */
-let getTokenInfo = () => {
-  return jwt_decode(getToken())
-}
+// /**
+//  * Récupération du payload du token
+//  * @returns {object}
+//  */
+// let getTokenInfo = () => {
+//   return jwt_decode(getToken())
+// }
 
 // Déclaration des services pour import
 export const accountService = {
-  login, saveToken, logout, isLogged, getToken, getTokenInfo
+  login, saveToken, logout, isLogged, getToken
 }

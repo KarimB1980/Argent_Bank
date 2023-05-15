@@ -1,19 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import '../pages/style/Main.css';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/img/argentBankLogo.png'
 import { accountService } from '../_service/AccountService'
-
-import { useSelector } from 'react-redux'
-
+import { useSelector, useDispatch } from 'react-redux'
+import { profileFirstName } from '../redux/nameSlice'
 
 const NavigationProfile = () => {
+  const dispatch = useDispatch()
+  const { firstName } = useSelector((state) => state.profile)
+  const localStorageFirstName = localStorage.getItem('firstName')
 
-  const name = useSelector(state => state.Name)
+  useEffect(() => {
+    if (localStorageFirstName) {
+      dispatch(profileFirstName(localStorageFirstName))
+    }
+  }, [dispatch, localStorageFirstName])
 
   return (
     <nav className="main-nav">
-      <Link to="/" className="main-nav-logo">          
+      <Link to="/" className="main-nav-logo">
         <img
           className="main-nav-logo-image"
           src={Logo}
@@ -24,7 +30,7 @@ const NavigationProfile = () => {
       <div>
         <Link to="/profile" className="main-nav-item">
           <i className="fa fa-user-circle"></i>
-          {name.firstname}
+          {firstName}
         </Link>
         <Link to="/" className="main-nav-item" onClick={() => accountService.logout()}>
           <i className="fa fa-sign-out"></i>

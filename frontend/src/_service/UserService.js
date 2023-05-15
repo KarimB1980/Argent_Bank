@@ -16,8 +16,17 @@ let getUser = () => {
  * @returns {Promise}
  */
 let updateUser = (user) => {
-  // return Axios.patch('/profile', user)
-  return Axios.put('/profile', user)
+  return (
+    Axios.put('/profile', user), 
+    getUser()
+    .then(res => {
+      localStorage.setItem('firstName',res.data.body.firstName)
+      localStorage.setItem('lastName', res.data.body.lastName)
+      // Evènement au changement du localStorage
+      window.dispatchEvent(new Event("storage"));
+    })
+    .catch(err => console.log(err))
+  )
 }
 
 // Déclaration des services pour import
