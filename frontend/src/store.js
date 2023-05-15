@@ -1,9 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import profileReducer from './redux/nameSlice'
+import reducer from './redux/profileSlice'
 
 export const store = configureStore({
   reducer: {
-    profile: profileReducer,
+    profile: reducer,
   }
 })

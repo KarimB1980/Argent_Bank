@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Logo from '../assets/img/argentBankLogo.png'
 import { accountService } from '../_service/AccountService'
 import { useSelector, useDispatch } from 'react-redux'
-import { profileFirstName } from '../redux/nameSlice'
+import { profileFirstName } from '../redux/profileSlice'
 
 const NavigationProfile = () => {
   const dispatch = useDispatch()

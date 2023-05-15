@@ -3,7 +3,7 @@ import '../pages/style/Main.css';
 import { useSelector, useDispatch } from 'react-redux'
 import { useForm } from 'react-hook-form'
 import { userService } from '../_service/UserService'
-import { profileFirstName, profileLastName} from '../redux/nameSlice'
+import { profileFirstName, profileLastName} from '../redux/profileSlice'
 import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
@@ -46,8 +46,8 @@ const Header = () => {
               <input type='text' name="Firstname" {...register("firstName")} className='inputName' placeholder={firstName}></input>
               <input type='text' name="Lastname" {...register("lastName")} className='inputName' placeholder={lastName}></input>
             </h1>            
-            <input type="submit" value="Save" className="edit-button" />
-            <button className="edit-button" onClick={() => setShow(!show)}>
+            <input type='submit' value="Save" className="edit-button" />
+            <button type='button' className="edit-button" onClick={() => setShow(!show)}>
               Cancel
             </button>
           </form>
