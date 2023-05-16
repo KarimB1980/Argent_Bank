@@ -17,7 +17,9 @@ const Header = () => {
   useNavigate()
 
   const onSubmit = data => {
-    userService.updateUser(data)
+    if (document.getElementById('inputFirstname').value !== '' & document.getElementById('inputLastname').value !== '') {
+      userService.updateUser(data)
+    }
   }
 
   useEffect(() => {
@@ -43,8 +45,8 @@ const Header = () => {
         {!show &&
           <form onSubmit={handleSubmit(onSubmit)}>
             <h1>Welcome back<br />
-              <input type='text' name="Firstname" {...register("firstName")} className='inputName' placeholder={firstName}></input>
-              <input type='text' name="Lastname" {...register("lastName")} className='inputName' placeholder={lastName}></input>
+              <input type='text' name="Firstname" {...register("firstName")} className='inputName' id='inputFirstname' placeholder={firstName}></input>
+              <input type='text' name="Lastname" {...register("lastName")} className='inputName' id='inputLastname' placeholder={lastName}></input>
             </h1>            
             <input type='submit' value="Save" className="edit-button" />
             <button type='button' className="edit-button" onClick={() => setShow(!show)}>
