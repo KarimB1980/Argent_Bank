@@ -16,9 +16,5 @@ const profileSlice = createSlice({
   },
 })
 
-const { actions, reducer } = profileSlice
-export const {
-  profileFirstName,
-  profileLastName
-} = actions
-export default reducer
+export const { profileFirstName, profileLastName } = profileSlice.actions
+export default profileSlice.reducer
