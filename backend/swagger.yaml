@@ -66,7 +66,8 @@ paths:
       summary: User Profile API
       description: API for fetching a user profile
       parameters:
-        - in: header
+        - type: string
+          in: header
           name: Authorization
           description: Attach Bearer JWT token
           required: true
@@ -89,7 +90,8 @@ paths:
       summary: User Profile API
       description: API for updating a user profile
       parameters:
-        - in: header
+        - type: string
+          in: header
           name: Authorization
           description: Attach Bearer JWT token
           required: true
@@ -119,7 +121,8 @@ paths:
       summary: User Transactions API
       description: API for fetching a user transactions
       parameters:
-        - in: header
+        - type: string
+          in: header
           name: Authorization
           description: Attach Bearer JWT token
           required: true
@@ -142,7 +145,8 @@ paths:
       summary: User Transactions API
       description: API for updating a user transactions
       parameters:
-        - in: header
+        - type: string
+          in: header
           name: Authorization
           description: Attach Bearer JWT token
           required: true
