@@ -14,7 +14,7 @@ Axios.interceptors.request.use(request => {
   return request
 })
 
-// Intercepteur de réponse API pour vérification de la session et injection du prénom et du nom de l'utilisateur dans le localStorage
+// Intercepteur de réponse API pour vérification de la session
 Axios.interceptors.response.use(response => {
   console.log(response)
   return response

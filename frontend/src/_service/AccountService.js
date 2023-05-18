@@ -1,5 +1,4 @@
 import Axios from './CallerService'
-// import jwt_decode from 'jwt-decode'
 import { userService } from '../_service/UserService'
 
 /**
@@ -33,7 +32,6 @@ let saveToken = (token) => {
  */
 let logout = () => {
   localStorage.removeItem('token')
-
   localStorage.removeItem('firstName')
   localStorage.removeItem('lastName')
 }
@@ -54,14 +52,6 @@ let isLogged = () => {
 let getToken = () => {
   return localStorage.getItem('token')
 }
-
-// /**
-//  * Récupération du payload du token
-//  * @returns {object}
-//  */
-// let getTokenInfo = () => {
-//   return jwt_decode(getToken())
-// }
 
 // Déclaration des services pour import
 export const accountService = {
