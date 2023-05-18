@@ -30,32 +30,30 @@ const Header = () => {
   }, [dispatch, localStorageFirstName, localStorageLastName])
   
   return (
-    <>
-      <div className="header">
-        {show &&
-          <div>
-            <h1>Welcome back<br />
-              {firstName} {lastName} !
-            </h1>
-            <button className="edit-button" onClick={() => setShow(!show)}>
-              Edit Name
-            </button>
-          </div>
-        }
-        {!show &&
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <h1>Welcome back<br />
-              <input type='text' name="Firstname" {...register("firstName")} className='inputName' id='inputFirstname' placeholder={firstName}></input>
-              <input type='text' name="Lastname" {...register("lastName")} className='inputName' id='inputLastname' placeholder={lastName}></input>
-            </h1>            
-            <input type='submit' value="Save" className="edit-button" />
-            <button type='button' className="edit-button" onClick={() => setShow(!show)}>
-              Cancel
-            </button>
-          </form>
-        }
-      </div>
-    </>
+    <div className="header">
+      {show &&
+        <div>
+          <h1>Welcome back<br />
+            {firstName} {lastName} !
+          </h1>
+          <button className="edit-button" onClick={() => setShow(!show)}>
+            Edit Name
+          </button>
+        </div>
+      }
+      {!show &&
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h1>Welcome back<br />
+            <input type='text' name="Firstname" {...register("firstName")} className='inputName' id='inputFirstname' placeholder={firstName}></input>
+            <input type='text' name="Lastname" {...register("lastName")} className='inputName' id='inputLastname' placeholder={lastName}></input>
+          </h1>            
+          <input type='submit' value="Save" className="edit-button" />
+          <button type='button' className="edit-button" onClick={() => setShow(!show)}>
+            Cancel
+          </button>
+        </form>
+      }
+    </div>
   )
 }
 

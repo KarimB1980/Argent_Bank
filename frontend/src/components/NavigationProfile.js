@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import '../pages/style/Main.css';
 import { Link } from 'react-router-dom';
 import Logo from '../assets/img/argentBankLogo.png'
 import { accountService } from '../_service/AccountService'
-import { useSelector, useDispatch } from 'react-redux'
-import { profileFirstName } from '../redux/profileSlice'
+import { useSelector } from 'react-redux'
 
 const NavigationProfile = () => {
-  const dispatch = useDispatch()
   const { firstName } = useSelector((state) => state.profile)
-  const localStorageFirstName = localStorage.getItem('firstName')
-
-  useEffect(() => {
-    if (localStorageFirstName) {
-      dispatch(profileFirstName(localStorageFirstName))
-    }
-  }, [dispatch, localStorageFirstName])
 
   return (
     <nav className="main-nav">
