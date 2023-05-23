@@ -6,7 +6,7 @@ import Account from '../components/Account';
 import Footer from '../components/Footer'
 import { useNavigate } from 'react-router-dom'
 
-// Creation of the profil page
+// Creation of the profile page
 const Profile = () => {
   if (localStorage.getItem('token')) {
     return (

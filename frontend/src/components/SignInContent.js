@@ -6,11 +6,10 @@ import { accountService } from '../_service/AccountService';
 const SignInContent = () => {
   let navigate = useNavigate()
 
-  // Attention ici mise en place de valeur par défaut pour travailler.
-  // NE JAMAIS FAIRE CELA
+  // Mise en place des valeurs par défaut
   const [credentials, setCredentials] = useState({
-    email: 'tony@stark.com',
-    password: 'password123'
+    email: '',
+    password: ''
   })
 
   // Gestion de la modification des champs du formulaire
