@@ -16,7 +16,6 @@ Axios.interceptors.request.use(request => {
 
 // Intercepteur de réponse API pour vérification de la session
 Axios.interceptors.response.use(response => {
-  console.log(response)
   return response
 }, error => {
   if(error.response.status === 401){

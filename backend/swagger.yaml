@@ -112,13 +112,13 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-  /user/transactions/{month}:
+  /transactions/{month}:
     post:
       security:
         - Bearer: []
       tags:
         - User Transactions
-      summary: User Transactions API
+      summary: User's month Transactions API
       description: API for fetching all user transactions
       parameters:
         - type: string
@@ -142,13 +142,13 @@ paths:
           description: Invalid Fields
         '500':
           description: Internal Server Error
-  /user/transactions/{month}/{transactionId}:
+  /transactions/{month}/{transactionId}:
     get:
       security:
         - Bearer: []
       tags:
         - User Transactions
-      summary: User Transaction API
+      summary: Get user Transaction API
       description: API for fetching a user transaction
       parameters:
         - type: string
@@ -182,7 +182,7 @@ paths:
         - Bearer: []
       tags:
         - User Transactions
-      summary: Add user transaction API
+      summary: Add user's informations transaction API
       description: API for adding a user transaction
       parameters:
         - type: string
@@ -222,7 +222,7 @@ paths:
         - Bearer: []
       tags:
         - User Transactions
-      summary: Delete user transaction API
+      summary: Delete user's informations transaction API
       description: API for deleting a user transaction
       parameters:
         - type: string

@@ -11,7 +11,7 @@ let login = (credentials) => {
 }
 
 /**
- * Sauvegarde du token dans le localStorage
+ * Sauvegarde du token, du prénom et du nom dans le localStorage
  * @param {string} token 
  */
 let saveToken = (token) => {
@@ -28,7 +28,7 @@ let saveToken = (token) => {
 }
 
 /**
- * Suppression du token du localStorage
+ * Suppression du token, du prénom et du nom du localStorage
  */
 let logout = () => {
   localStorage.removeItem('token')

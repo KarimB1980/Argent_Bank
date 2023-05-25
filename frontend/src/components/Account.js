@@ -13,7 +13,7 @@ const Account = ({title, value, description}) => {
       <div className="account-content-wrapper cta">
         <button className="transaction-button">View transactions</button>
       </div>
-  </section>
+    </section>
   );
 };
 

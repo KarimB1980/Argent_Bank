@@ -25,13 +25,12 @@ const SignInContent = () => {
     e.preventDefault()
     accountService.login(credentials)
     .then(res => {
-      // Sauvegarde du token et envoi vers admin
+      // Sauvegarde du token
       accountService.saveToken(res.data.body.token)
 
       // Se déclenche lorsque le localStorage change
       window.addEventListener('storage', () => {
         navigate('/profile', {replace: true})
-        console.log(res)
       })
 
     })
