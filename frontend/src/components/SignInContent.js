@@ -6,13 +6,13 @@ import { accountService } from '../_service/AccountService';
 const SignInContent = () => {
   let navigate = useNavigate()
 
-  // Mise en place des valeurs par défaut
+  // Setting default values
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
   })
 
-  // Gestion de la modification des champs du formulaire
+  // Managing the modification of form fields
   const onChange = (e) => {
     setCredentials({
       ...credentials,
@@ -20,7 +20,7 @@ const SignInContent = () => {
     })
   }
 
-  // Soumission du formulaire
+  // Form submission
   const onSubmit = (e) => {
     e.preventDefault()
     accountService.login(credentials)

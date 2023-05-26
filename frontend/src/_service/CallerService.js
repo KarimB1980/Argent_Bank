@@ -1,12 +1,12 @@
 import axios from 'axios'
 import { accountService } from './AccountService'
 
-// Paramétrage de base d'axios
+// Basic setup of axios
 const Axios = axios.create({
   baseURL: 'http://localhost:3001/api/v1/user'
 })
 
-// Intercepteur pour la mise en place du token dans la requête
+// Interceptor for placing the token in the request
 Axios.interceptors.request.use(request => {
   if(accountService.isLogged()){
     request.headers.Authorization = 'Bearer '+accountService.getToken()
@@ -14,7 +14,7 @@ Axios.interceptors.request.use(request => {
   return request
 })
 
-// Intercepteur de réponse API pour vérification de la session
+// API response interceptor for session verification
 Axios.interceptors.response.use(response => {
   return response
 }, error => {

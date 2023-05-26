@@ -2,7 +2,7 @@ import Axios from './CallerService'
 import { accountService } from './AccountService'
 
 /**
- * Connexion vers l'API
+ * Connection to the API
  * @param {object} accountService.isLogged() 
  * @returns {Promise}
  */
@@ -11,7 +11,7 @@ let getUser = () => {
 }
 
 /**
- * Mise à jour d'un utilisateur
+ * Update a user
  * @param {number} user 
  * @returns {Promise}
  */
@@ -22,14 +22,14 @@ let updateUser = (user) => {
     .then(res => {
       localStorage.setItem('firstName',res.data.body.firstName)
       localStorage.setItem('lastName', res.data.body.lastName)
-      // Evènement au changement du localStorage
+      // LocalStorage change event
       window.dispatchEvent(new Event("storage"));
     })
     .catch(err => console.log(err))
   )
 }
 
-// Déclaration des services pour import
+// Declaration of services for import
 export const userService = {
   getUser, updateUser
 }
